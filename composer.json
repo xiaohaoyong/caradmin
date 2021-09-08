@@ -40,23 +40,9 @@
             "enabled": false
         }
     },
-    "repositories": {
-
-        "0": {
-
+    "repositories": [
+        {
             "type": "composer",
-
             "url": "https://asset-packagist.org"
-
-        },
-
-        "packagist": {
-
-            "type": "composer",
-
-            "url": "https://mirrors.aliyun.com/composer/"
-
-        }
-
-    }
+        }]
 }
