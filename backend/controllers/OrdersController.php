@@ -41,24 +41,24 @@ class OrdersController extends Controller
      */
     public function actionIndex()
     {
-        $file = \Yii::createObject([
-            'class' => 'codemix\excelexport\ExcelFile',
-            'sheets' => [
-                'Users' => [
-                    'class' => 'codemix\excelexport\ActiveExcelSheet',
-                    'query' => User::find(),
-                ]
-            ]
-        ]);
-        $file->send('user.xlsx');
-//        $searchModel = new OrdersSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
+//        $file = \Yii::createObject([
+//            'class' => 'codemix\excelexport\ExcelFile',
+//            'sheets' => [
+//                'Users' => [
+//                    'class' => 'codemix\excelexport\ActiveExcelSheet',
+//                    'query' => User::find(),
+//                ]
+//            ]
 //        ]);
-    }
+//        $file->send('user.xlsx');
+        $searchModel = new OrdersSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+}
 
     /**
      * Displays a single Orders model.
