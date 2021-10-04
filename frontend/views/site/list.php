@@ -40,7 +40,7 @@ $this->title = 'My Yii Application';
     <?php
     foreach($order as $k=>$v){
     ?>
-        <a href="/site/view?id=<?$v->id?>">
+        <a href="/site/view?id=<?=$v->id?>">
     <div class="info-item dfsb">
         <div>
             <div class="info-title">
