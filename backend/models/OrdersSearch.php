@@ -12,17 +12,29 @@ use common\models\Orders;
  */
 class OrdersSearch extends Orders
 {
+    public $createtime_end = '';
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'mileage', 'interval_mileage', 'createtime', 'updatetime'], 'integer'],
+            [['id', 'mileage', 'interval_mileage'], 'integer'],
             [['orderid', 'customer', 'phone', 'number', 'vin', 'car_model', 'shop', 'worker'], 'safe'],
+            [['createtime','createtime_end'], 'string'],
+
         ];
     }
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        $return = parent::attributeLabels();
+        $return ['createtime_end'] = '~';
 
+        return $return;
+    }
     /**
      * @inheritdoc
      */
@@ -56,13 +68,17 @@ class OrdersSearch extends Orders
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        if($this->createtime){
+            $query->andFilterWhere(['>=', 'createtime', $this->createtime]);
+        }
+        if($this->createtime_end){
+            $query->andFilterWhere(['<=', 'createtime', $this->createtime_end]);
+        }
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'mileage' => $this->mileage,
             'interval_mileage' => $this->interval_mileage,
-            'createtime' => $this->createtime,
             'updatetime' => $this->updatetime,
         ]);
 

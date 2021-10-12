@@ -23,6 +23,11 @@ use Yii;
  */
 class Orders extends \yii\db\ActiveRecord
 {
+    public static $interval_mileageText=[
+        5000=>5000,
+        7000=>7000,
+        10000=>10000,
+    ];
     /**
      * {@inheritdoc}
      */
@@ -37,7 +42,7 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'phone', 'number', 'vin', 'mileage', 'interval_mileage', 'car_model', 'shop', 'worker'], 'required'],
+            [['customer', 'phone', 'number', 'vin', 'mileage', 'interval_mileage', 'car_model', 'shop', 'worker'], 'required'],
             [['mileage', 'interval_mileage'], 'integer'],
             [['orderid', 'customer', 'phone', 'vin', 'car_model', 'shop', 'worker'], 'string', 'max' => 50],
             [['createtime','updatetime'], 'string'],

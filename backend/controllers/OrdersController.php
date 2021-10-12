@@ -10,7 +10,6 @@ use Yii;
 use common\models\Orders;
 use backend\models\OrdersSearch;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;

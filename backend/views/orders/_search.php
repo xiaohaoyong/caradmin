@@ -16,15 +16,22 @@ use yii\widgets\ActiveForm;
         'options' => ['class' => 'form-inline'],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'orderid') ?>
-
     <?= $form->field($model, 'customer') ?>
 
     <?= $form->field($model, 'phone') ?>
 
     <?= $form->field($model, 'number') ?>
+
+    <?= $form->field($model, 'createtime')->widget(\kartik\date\DatePicker::className(), ['pluginOptions' => [
+        'format' => 'yyyy-mm-dd',
+        'autocomplete'=>'off',
+        'todayHighlight' => true
+    ]]) ?>
+    <?= $form->field($model, 'createtime_end')->widget(\kartik\date\DatePicker::className(), ['pluginOptions' => [
+        'format' => 'yyyy-mm-dd',
+        'autocomplete'=>'off',
+        'todayHighlight' => true
+    ]]) ?>
 
     <?php // echo $form->field($model, 'vin') ?>
 

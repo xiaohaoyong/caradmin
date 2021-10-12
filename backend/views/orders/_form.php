@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
                     </div>
                     <div class="col-sm-4">
-                        <?= $form->field($model, 'number')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'number')->textInput(['value'=>'陕K']) ?>
                     </div>
                 </div>
                 <div class="row">
@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'mileage')->textInput() ?>
                     </div>
                     <div class="col-sm-4">
-                        <?= $form->field($model, 'interval_mileage')->textInput() ?>
+                        <?= $form->field($model, 'interval_mileage')->dropDownList(\common\models\Orders::$interval_mileageText,['prompt'=>'请选择']) ?>
                     </div>
                 </div>
                 <div class="row">

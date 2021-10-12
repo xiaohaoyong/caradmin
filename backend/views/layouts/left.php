@@ -38,5 +38,8 @@
         ) ?>
 
     </section>
-
+    <div style="color: #ffffff;margin-top: 100px; display: flex;flex-direction: column; justify-content: center; align-items: center;">
+        <div>日销售额：<?=\Yii::$app->params['orderTodayTotal']?\Yii::$app->params['orderTodayTotal']:0?></div>
+        <div>总销售额：<?=\Yii::$app->params['orderTotal']?></div>
+    </div>
 </aside>
