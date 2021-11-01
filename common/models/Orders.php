@@ -42,10 +42,10 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer', 'phone', 'number', 'vin', 'mileage', 'interval_mileage', 'car_model', 'shop', 'worker'], 'required'],
             [['mileage', 'interval_mileage'], 'integer'],
             [['orderid', 'customer', 'phone', 'vin', 'car_model', 'shop', 'worker'], 'string', 'max' => 50],
             [['createtime','updatetime'], 'string'],
+            [['remarks'], 'string','max'=>255],
 
             [['number'], 'string', 'max' => 20],
         ];
@@ -73,6 +73,8 @@ class Orders extends \yii\db\ActiveRecord
             'worker' => '维修工',
             'createtime' => '添加时间',
             'updatetime' => '修改时间',
+            'remarks' => '备注',
+
         ];
     }
     public function beforeSave($insert)

@@ -32,7 +32,7 @@ class OrdersGoods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['goods_name', 'price', 'num', 'total', 'remarks'], 'required'],
+            [['goods_name', 'price', 'num', 'total'], 'required'],
             [['id', 'goodsid', 'orderid', 'num'], 'integer'],
             [['price', 'total'], 'number'],
             [['remarks'], 'string'],
@@ -54,7 +54,6 @@ class OrdersGoods extends \yii\db\ActiveRecord
             'price' => '单价',
             'num' => '数量',
             'total' => '总价',
-            'remarks' => '备注',
         ];
     }
 }

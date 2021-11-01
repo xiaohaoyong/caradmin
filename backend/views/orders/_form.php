@@ -50,12 +50,16 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
 
-
-
-
-
-
-
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?= $form->field($model, 'remarks')->widget(\yii\redactor\widgets\Redactor::className(), [
+                            'clientOptions' => [
+                                'lang' => 'zh_cn',
+                                'plugins' => ['clips', 'fontcolor','imagemanager']
+                            ]
+                        ]) ?>
+                    </div>
+                </div>
                     <?php
                     \wbraganca\dynamicform\DynamicFormWidget::begin([
                         'widgetContainer' => 'dynamicform_wrapper', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
@@ -72,7 +76,6 @@ use yii\widgets\ActiveForm;
                             'price',
                             'num',
                             'total',
-                            'remarks',
                         ],
                     ]);
                     ?>
@@ -91,10 +94,10 @@ use yii\widgets\ActiveForm;
                                 <?php
                                 // necessary for update action.
                                 if (! $modelAddress->isNewRecord) {
-                                    echo Html::activeHiddenInput($modelAddress, "[{$i}]id");
+                                    echo Html::activeHiddenInput($modelAddress, "[{$i}]id",['value'=>0]);
                                 }
                                 ?>
-                                <?= $form->field($modelAddress, "[{$i}]goodsid")->hiddenInput()->label(false) ?>
+                                <?= $form->field($modelAddress, "[{$i}]goodsid")->hiddenInput(['value'=>0])->label(false) ?>
 
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -113,7 +116,6 @@ use yii\widgets\ActiveForm;
                                     </div>
 
                                 </div>
-                                <?= $form->field($modelAddress, "[{$i}]remarks")->textInput(['maxlength' => true]) ?>
 
                             </div>
                         </div>
