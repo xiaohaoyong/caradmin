@@ -58,6 +58,8 @@ class Goods extends \yii\db\ActiveRecord
             'price' => '指导价格',
             'remarks' => '备注',
             'stock' => '库存',
+            'category' => '分类',
+
             'createtime' => '添加时间',
             'updatetime' => '最新修改时间',
         ];
