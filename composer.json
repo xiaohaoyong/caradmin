@@ -49,8 +49,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/",
-            "canonical":false
+            "url": "https://packagist.phpcomposer.com"
         }]
 }
 
