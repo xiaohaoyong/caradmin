@@ -49,6 +49,6 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://mirrors.aliyun.com/composer/"
         }]
 }
