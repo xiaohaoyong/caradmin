@@ -45,7 +45,7 @@
         "allow-plugins": {
             "yiisoft/yii2-composer": true
         },
-        "secure-http": true
+        "secure-http": false
     },
     "repositories": [
         {
