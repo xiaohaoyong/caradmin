@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = '小熊福利数据管理后台';
+$this->title = '管理后台';
 
 $fieldOptions1 = [
     'options' => ['class' => 'form-group has-feedback'],
@@ -22,11 +22,11 @@ $fieldOptions2 = [
 
     <div class="login-box">
         <div class="login-logo">
-            <a href="#">小熊福利数据管理后台</a>
+            <a href="#">管理后台</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">小熊福利数据管理后台</p>
+            <p class="login-box-msg">管理后台</p>
 
             <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
