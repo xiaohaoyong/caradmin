@@ -52,12 +52,7 @@ use yii\widgets\ActiveForm;
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <?= $form->field($model, 'remarks')->widget(\yii\redactor\widgets\Redactor::className(), [
-                            'clientOptions' => [
-                                'lang' => 'zh_cn',
-                                'plugins' => ['clips', 'fontcolor','imagemanager']
-                            ]
-                        ]) ?>
+                        <?= $form->field($model, 'remarks')->widget('kucha\ueditor\UEditor', []) ?>
                     </div>
                 </div>
                     <?php
