@@ -35,7 +35,6 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'mileage')->textInput() ?>
                     </div>
                     <div class="col-sm-4">
-                        <?php exit;?>
                         <?= $form->field($model, 'interval_mileage')->dropDownList(\common\models\Orders::$interval_mileageText,['prompt'=>'请选择']) ?>
                     </div>
                 </div>
