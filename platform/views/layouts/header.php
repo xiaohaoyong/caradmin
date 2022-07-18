@@ -24,14 +24,14 @@ $Business=\common\models\Business::findOne(['id'=>Yii::$app->user->identity->bus
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        <span class="hidden-xs"><?=$Business->name?>:<?=Yii::$app->user->identity->name?></span>
+                        <span class="hidden-xs"><?=Yii::$app->user->identity->name?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li role="separator" class="divider"></li>
                         <li>
                             <?= Html::a(
                                 '编辑信息',
-                                ['/user-doctor/update']
+                                ['business/update?id=1']
                             ) ?>
                         </li>
                         <li role="separator" class="divider"></li>
