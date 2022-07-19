@@ -17,6 +17,7 @@ $Business=\common\models\Business::findOne(['id'=>Yii::$app->user->identity->bus
             <span class="sr-only">Toggle navigation</span>
         </a>
 
+        <div style="float: left; line-height:50px;color: #fff">剩余天数：<?=ceil((strtotime($Business->endtime)-time())/86400)?>，如需续约请联系管理员：（13239283188）</div>
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">

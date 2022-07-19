@@ -22,19 +22,14 @@
                         'icon' => '',
                         'url' => '/goods',
                     ],
+
                     [
                         'label' => '员工管理',
                         'icon' => '',
-                        'url' => '/staff',
-                    ],
-                    ['label' => '管理', 'options' => ['class' => 'header']],
-                    [
-                        'label' => '管理员',
-                        'icon' => 'share',
                         'url' => '#',
                         'items' => [
-                            ['label' => '管理员列表', 'icon' => 'file-code-o', 'url' => ['/admin-business'],],
-                            ['label' => '添加管理员', 'icon' => 'dashboard', 'url' => ['/admin-business/create'],],
+                            ['label' => '员工列表', 'icon' => '', 'url' => ['/staff'],],
+                            ['label' => '员工账单', 'icon' => '', 'url' => ['/orders?type=1'],],
                         ],
                     ],
                 ],

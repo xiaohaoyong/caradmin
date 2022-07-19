@@ -2,6 +2,7 @@
 
 namespace platform\controllers;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Yii;
 use platform\models\Commodity;
 use platform\models\CommoditySearch;
@@ -28,7 +29,44 @@ class CommodityController extends Controller
             ],
         ];
     }
+    public function actionDown()
+    {
+        ini_set('memory_limit', '2048M');
+        ini_set("max_execution_time", "0");
+        set_time_limit(0);
 
+        $searchModel = new CommoditySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $spreadsheet = new Spreadsheet();
+        $worksheet = $spreadsheet->getActiveSheet();
+        $worksheet->getCellByColumnAndRow(1,1)->setValue('商品名称');
+        $worksheet->getCellByColumnAndRow(2,1)->setValue('商品型号');
+        $worksheet->getCellByColumnAndRow(3,1)->setValue('品牌');
+        $worksheet->getCellByColumnAndRow(4,1)->setValue('适用车型');
+        $worksheet->getCellByColumnAndRow(5,1)->setValue('指导价格');
+        $i = 2;
+        foreach ($dataProvider->query->all() as $k => $e) {
+            $worksheet->getCellByColumnAndRow(1, $i)->setValue($e->name);
+            $worksheet->getCellByColumnAndRow(2, $i)->setValue($e->goods_model);
+            $worksheet->getCellByColumnAndRow(3, $i)->setValue($e->make);
+            $worksheet->getCellByColumnAndRow(4, $i)->setValue($e->car_model);
+            $worksheet->getCellByColumnAndRow(5, $i)->setValue($e->price);
+            $i++;
+        }
+
+
+        ob_end_clean();
+        ob_start();
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition:attachment;filename="商品列表-' . date("Y年m月j日") . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+
+
+    }
     /**
      * Lists all Goods models.
      * @return mixed

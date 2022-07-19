@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'goods_model',
             'make',
             'car_model',
-            // 'price',
+             'price',
             // 'remarks',
             // 'stock',
             // 'createtime:datetime',
